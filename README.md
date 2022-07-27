@@ -8,11 +8,9 @@
 
   - Quel est le nombre total d'objets Album contenus dans la base (sans regarder les id bien sûr) ?
 
-
   Album.count
 
     => 347
-
 
   - Qui est l'auteur de la chanson "White Room" ?
 
@@ -20,21 +18,17 @@
 
        => "Eric Clapton"
 
-
   - Quelle chanson dure exactement 188133 milliseconds ?
 
   Track.find_by(duration: 188133).title
 
       => "Perfect"
 
-
   - Quel groupe a sorti l'album "Use Your Illusion II" ?
-
 
   Album.find_by(title: "Use Your Illusion II").artist
 
       => "Guns N Roses"
-
 
 ## b) Niveau moyen
 
@@ -62,6 +56,7 @@
   - puts en console tous les titres de AC/DC.
 
   Track.where("artist like ?", "AC/DC").each do |track|
+
   puts track.title
     end
 
@@ -69,29 +64,26 @@
 
 
   Track.where("album like ?", "Let There Be Rock").each do |track|
+
    puts track.title
     end
 
   - Calcule le prix total de cet album ainsi que sa durée totale.
 
-
   Track.where("album like ?", "Let There Be Rock").sum(:price)
 
     Track.where("album like ?", "Let There Be Rock").sum(:duration)
 
-
  - Calcule le coût de l'intégralité de la discographie de "Deep Purple".
 
-
   Track.where("artist like ?", "Deep Purple").sum(:price)
-
 
   -Modifie (via une boucle) tous les titres de "Eric Clapton" afin qu'ils soient affichés avec "Britney Spears" en artist.
 
   Track.where("artist like ?", "Eric Clapton").each do |track|
+
     track.update(artist: "Britney Spears")
     end
-
 
 MERCI DE TA VISITE !!
 ========================
